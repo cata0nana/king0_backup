@@ -1,6 +1,6 @@
 server {
 
-    listen                    80;
+    listen                    8000;
     root                      /var/www/html/public;
     index                     index.html index.htm index.php;
     charset                   utf-8;
