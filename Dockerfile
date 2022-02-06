@@ -31,7 +31,7 @@ COPY default /etc/nginx/sites-available/default
 COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
 COPY php.ini /etc/php/7.4/fpm/php.ini
-
+ADD src/ /var/www/html/
 EXPOSE 8000
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
