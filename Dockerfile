@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 
-MAINTAINER Jose Fonseca <jose@ditecnologia.com>
+MAINTAINER DISP0S0
 
 RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US.UTF-8' LC_ALL='en_US.UTF-8'
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US.UTF-8' LC_ALL='en_US.UTF-8' PORT='80'
 
 RUN apt-get update \
     && DEBIAN_FRONTEND="noninteractive" apt-get install -y nginx curl zip unzip git software-properties-common supervisor sqlite3 libxrender1 libxext6 mysql-client libssh2-1-dev autoconf libz-dev \
@@ -32,9 +32,9 @@ COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
 COPY php.ini /etc/php/7.4/fpm/php.ini
 ADD src/ /var/www/html/
-EXPOSE 8000
+EXPOSE 80
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
-EXPOSE 80
+#EXPOSE 80
