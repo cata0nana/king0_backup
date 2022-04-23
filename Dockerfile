@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-MAINTAINER DISP0S0
+MAINTAINER DISP0S0 back_up
 
 RUN apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US.UTF-8' LC_ALL='en_US.UTF-8' PORT=80
